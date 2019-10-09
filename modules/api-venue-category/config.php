@@ -26,6 +26,9 @@ return [
             ],
             [
                 'api' => NULL
+            ],
+            [
+                'lib-pagination' => NULL
             ]
         ],
         'optional' => []
