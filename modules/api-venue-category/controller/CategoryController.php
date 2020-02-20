@@ -23,7 +23,9 @@ class CategoryController extends \Api\Controller
 
         list($page, $rpp) = $this->req->getPager();
 
-        $cats = VCategory::get([], $rpp, $page, ['name'=>'ASC']);
+        $cond = $this->req->getCond(['q']);
+
+        $cats = VCategory::get($cond, $rpp, $page, ['name'=>'ASC']);
         $cats = !$cats ? [] : Formatter::formatMany('venue-category', $cats);
 
         foreach($cats as &$pg)
